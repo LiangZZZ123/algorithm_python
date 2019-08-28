@@ -1,4 +1,4 @@
-def quick_sort(array):  # not inplace; unstable
+def quick_sort(array):  # (not)inplace; unstable, time: o(nlogn) - o(n^2)
     size = len(array)
     if not array or size < 2:
         return array
