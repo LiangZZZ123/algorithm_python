@@ -10,6 +10,7 @@ class Set(hash_file.HashArray):
     Difference: -
     Symmetric difference: ^
     """
+
     def add(self, key):
         # a set is essentially a dict, we just make the value=True all the time
         return super().add(key, True)

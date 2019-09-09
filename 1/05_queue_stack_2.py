@@ -29,7 +29,6 @@ class queue_and_stack(doubly_linked_list_file.DoublyLinkedList):
     # def clear(self):
     #     return self.items.clear()
 
-
 def test_queue_and_stack():
     # test for Queue
     q1 = queue_and_stack()

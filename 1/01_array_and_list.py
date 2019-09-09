@@ -45,3 +45,20 @@ if __name__ == "__main__":
     iter_a1 = iter(a1)
     print(iter_a1 is iter(iter_a1))
     print(iter(a1) == iter(iter(a1)), id(a1), id(iter(a1)), id(iter(iter(a1))))
+    # # print([*a1])
+    # # print([*iter(iter(a1)))])
+    # a2 = Array(10)
+    # a3 = Array(10)
+    # print(f"a2:{id(a2)}, a3:{id(a3)}")
+
+    # # notice a3 here is destroyed immediately after called id(Array(10)), and then a4 use a3's memory address
+    # print(f"a3:{id(Array(10))}, a4:{id(Array(10))}")
+
+    # iter_a1 = iter(a1)
+    # print(iter_a1 is iter(iter_a1))
+    # print(iter(a1) == iter(iter(a1)), id(a1), id(iter(a1)), id(iter(iter(a1))))
+
+
+    from dis import dis
+    
+    dis('iter(a1)')

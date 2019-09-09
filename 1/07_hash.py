@@ -178,7 +178,6 @@ def test_hash_array():
     h1.add('a', 0)
     h1.add('b', 1)
     h1.add('c', 2)
-
     assert len(h1) == 3
     assert h1.get('a') == 0
     assert h1.get('c') == 2
@@ -187,6 +186,7 @@ def test_hash_array():
         h1[None]
     assert type(info.value) is KeyError
 
+    
     assert h1.remove('a') == 0
     assert h1.get('a') is None
     with pytest.raises(Exception) as info:
