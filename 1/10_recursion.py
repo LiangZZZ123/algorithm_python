@@ -17,8 +17,6 @@ def print_num_tail_recursive(n):
 
 
 count = 0
-
-
 def hanoi_move(n, source, dest, intermediate):
     "将n个盘子通过中介intermediaate从source移动到dest"
     global count

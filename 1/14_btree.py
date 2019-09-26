@@ -5,13 +5,27 @@ from collections import deque
 
 class Queue():
     def __init__(self):
-        self._items.deque()
+        self._items = deque()
 
     def append(self, value):
         return self._items.append(value)
 
     def pop(self):
         return self._items.popleft()
+
+    def empty(self):
+        return len(self._items) == 0
+
+
+class Stack(object):
+    def __init__(self):
+        self._items = deque()
+
+    def push(self, value):
+        return self._items.append(value)
+
+    def pop(self):
+        return self._items.pop()
 
     def empty(self):
         return len(self._items) == 0
@@ -53,6 +67,18 @@ class BinTree():
             self.preorder_trav(subtree.left)
             self.preorder_trav(subtree.right)
 
+    def preorder_trav_use_stack(self, subtree):
+        s = Stack()
+        if subtree:
+            s.push(subtree)
+            while not s.empty():
+                top_node = s.pop()
+                print(top_node.data)
+                if top_node.right:
+                    s.push(top_node.right)
+                if top_node.left:
+                    s.push(top_node.left)
+
     def inorder_trav(self, subtree):  # left - root - right
         if subtree is not None:
             self.inorder_trav(subtree.left)
@@ -84,6 +110,17 @@ class BinTree():
             current_nodes = next_nodes
             next_nodes = []
 
+    def layer_trav_use_queue(self, subtree):
+        q = Queue()
+        q.append(subtree)
+        while not q.empty():
+            cur_node = q.pop()
+            print(cur_node.data)
+            if cur_node.left:
+                q.append(cur_node.left)
+            if cur_node.right:
+                q.append(cur_node.right)
+
 
 node_list = [
     {'data': 'A', 'left': 'B', 'right': 'C', 'is_root': True},
@@ -103,13 +140,14 @@ btree = BinTree.build_from(node_list)
 print('====先序遍历=====')
 btree.preorder_trav(btree.root)
 
-# print('====使用 stack 实现先序遍历=====')
-# btree.preorder_trav_use_stack(btree.root)
+print('====使用 stack 实现先序遍历=====')
+btree.preorder_trav_use_stack(btree.root)
 
 print('====层序遍历=====')
 btree.layer_trav(btree.root)
-# print('====用队列层序遍历=====')
-# btree.layer_trav_use_queue(btree.root)
+
+print('====用队列层序遍历=====')
+btree.layer_trav_use_queue(btree.root)
 
 btree.reverse(btree.root)
 print('====反转之后的结果=====')

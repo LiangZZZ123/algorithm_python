@@ -43,4 +43,4 @@ class LFUCache():
             if len(self.map) >= self.capacity:
                 while self.priority_queue and self.priority_queue[0]
 
-    # 未完
+    # not finished
